@@ -27,10 +27,7 @@ let path = {
   clean: "./" + project_folder + "/"
 };
 
-let {
-  src,
-  dest
-} = require('gulp'),
+let {src,dest} = require('gulp'),
   gulp = require('gulp'),
   browsersyns = require("browser-sync").create(),
   fileinclude = require("gulp-file-include"),
@@ -154,8 +151,8 @@ gulp.task('svgSprite', function () {
         }
       }
     }))
-    .pipe(dest(path.build.img))
-})
+    .pipe(dest(path.build.img));
+});
 
 function fontsStyle(params) {
   let file_content = fs.readFileSync(source_folder + '/scss/fonts.scss');
@@ -173,7 +170,7 @@ function fontsStyle(params) {
           c_fontname = fontname;
         }
       }
-    })
+    });
   }
 }
 
