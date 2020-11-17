@@ -9,7 +9,7 @@
     }
 }
 
-@import url("https://fonts.googleapis.com/css?family=Roboto:300,regular,500,700&display=swap&subset=cyrillic-ext");
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,regular,500,700,900&display=swap&subset=cyrillic-ext");
 
 @import "fonts";
 
@@ -21,6 +21,170 @@ $fontFamily: "Roboto";
 $minWidth: 300px;
 $maxWidth:1400px;
 $maxWidthContainer:1180px;
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+//header 
+
+.header {
+    background: url("../img/bg_header.jpg") top no-repeat;
+
+    &__top {
+
+    }
+
+    &__bottom {
+
+    }
+}
+
+.top-header {
+
+    &__content {
+        display: flex;
+        align-items: center;
+    }
+
+    &__column {
+        flex: 0 1 50%;
+
+        &_logo {
+            align-self: flex-start;
+            padding: 25px 0px 0px 0px;
+            flex: 0 0 190px;
+            text-align: center;
+        }
+
+    }
+
+    &__menu {
+
+    }
+
+    &__logo {
+
+    }
+
+    &__contacts {
+    }
+    
+}
+
+
+.menu {
+    text-decoration: none;
+    &__icon {
+
+    }
+
+    &__list {
+        display: grid;
+        grid-template-columns: 110px 130px 180px;
+        list-style-type: none;
+        li {
+            margin: 1px 0;
+        }
+    }
+
+    &__link {
+        font-family: "Play";
+        text-decoration: underline;
+        font-size: 14px;
+        line-height: 18px;
+        min-height: 27px;
+        color: #fff;
+        transition: all 0.3s ease 0;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        padding:5px 22px;
+        @media (min-width:900px) {
+            &:hover {
+                border-radius: 20px;
+                background-color: #068292;
+            }
+        }
+        
+    }
+}
+
+.icon-menu {
+}
+
+.contacts-header {
+    display: flex;
+    justify-content: center;
+    &__column {
+        padding: 0px 30px;
+        border-right: 1px solid #fff;
+        &:last-child {
+            border: 0;
+        }
+    }
+
+    &__item {
+
+        &_icon {
+            background: url('../img/icons/header/phone.png') left no-repeat;
+            padding: 0px 0px 0px 37px;
+        }
+    }
+
+    &__label {
+        font-family: $fontFamily;
+        font-size: 12px;
+        font-weight: 300;
+        color: #fff;
+        text-decoration: none;
+        list-style-type: none;
+        margin: 0px 0px 5px 0px;
+    }
+
+    &__phone {
+        color: #fff;
+        font-size: 18px;
+        font-weight: 900;
+        text-decoration: none;
+        
+    }
+}
+
+.contacts-header__label {
+}
+.contacts-header__phone {
+}
+
+.botom-header {
+}
+.botom-header__container {
+}
+.botom-header__column {
+}
+.botom-header__actions {
+}
+.actions-header {
+}
+.actions-header__login {
+}
+.actions-header__reg {
+}
+.actions-header__email {
+}
+.botom-header__info {
+}
+.info-header {
+}
+.info-header__column {
+}
+.info-header__callback {
+}
+.info-header__schedule {
+}
+.info-header__cart {
+}
 
 
 // Сетка 
