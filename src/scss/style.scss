@@ -16,11 +16,21 @@
 //Primary font
 $fontFamily: "Roboto";
 
+@mixin Roboto14px300 {
+    font-family: $fontFamily;
+    font-size: 14px;
+    font-weight: 300;
+}
+
 //Переменные 
 
-$minWidth: 300px;
-$maxWidth:1400px;
-$maxWidthContainer:1180px;
+$minWidth: 300;
+$maxWidth:1400;
+$maxWidthContainer:1180;
+$md1:$maxWidthContainer + 12;
+$md2:991.98;
+$md3:767.98;
+$md4:479.98;
 
 * {
     padding: 0;
@@ -28,6 +38,10 @@ $maxWidthContainer:1180px;
 }
 
 //header 
+
+a {
+    text-decoration: none;
+}
 
 .header {
     background: url("../img/bg_header.jpg") top no-repeat;
@@ -46,6 +60,7 @@ $maxWidthContainer:1180px;
     &__content {
         display: flex;
         align-items: center;
+        height: 90px;
     }
 
     &__column {
@@ -75,7 +90,6 @@ $maxWidthContainer:1180px;
 
 
 .menu {
-    text-decoration: none;
     &__icon {
 
     }
@@ -83,8 +97,8 @@ $maxWidthContainer:1180px;
     &__list {
         display: grid;
         grid-template-columns: 110px 130px 180px;
-        list-style-type: none;
-        li {
+        
+        li {list-style-type: none;
             margin: 1px 0;
         }
     }
@@ -138,59 +152,157 @@ $maxWidthContainer:1180px;
         font-size: 12px;
         font-weight: 300;
         color: #fff;
-        text-decoration: none;
         list-style-type: none;
         margin: 0px 0px 5px 0px;
     }
 
     &__phone {
+        font-family: $fontFamily;
         color: #fff;
         font-size: 18px;
         font-weight: 900;
-        text-decoration: none;
+        white-space: nowrap;
         
     }
 }
 
-.contacts-header__label {
-}
-.contacts-header__phone {
+.botom-header {
+    &__container {
+        display: flex;
+        height: 63px;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__column {
+        flex: 0 1 calc(50% - 95px);
+    }
+
+    &__actions {
+        list-style-type: none;
+    }
+
+    &__info {
+    }
 }
 
-.botom-header {
-}
-.botom-header__container {
-}
-.botom-header__column {
-}
-.botom-header__actions {
-}
+
 .actions-header {
+    display: flex;
+    align-items: center;
+    li {
+        margin: 0px 54px 0px 0px;
+        @media (max-width: $maxWidthContainer+px) {
+            margin: 0px 54 /$maxWidthContainer * 100vw 0px 0px;
+        }
+    }
+    &__login {
+        @include Roboto14px300;
+        padding: 0px 0px 0px 36px;
+        background: url(../img/icons/header/login.png) left no-repeat;
+        display: inline-block;
+        line-height: 24px;
+        color:#999999;
+        span {
+            border-bottom: 1px dotted;
+        }
+        
+    }
+
+    &__reg {
+        @include Roboto14px300;
+        padding: 0px 0px 0px 36px;
+        background: url(../img/icons/header/user.png) left no-repeat;
+        display: inline-block;
+        line-height: 24px;
+        color:#1ab9ce;
+        span {
+            border-bottom: 1px dotted;
+        }
+    }
+
+    &__email {
+        @include Roboto14px300;
+        padding: 0px 0px 0px 36px;
+        background: url(../img/icons/header/mail.png) left no-repeat;
+        display: inline-block;
+        line-height: 13px;
+        color:#1ab9ce;
+        span {
+            border-bottom: 1px dotted;
+        }
+    }
+
 }
-.actions-header__login {
-}
-.actions-header__reg {
-}
-.actions-header__email {
-}
-.botom-header__info {
-}
+
 .info-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__column {
+        padding: 0px 54px 0px 0px;
+        @media (max-width: $maxWidthContainer+px) {
+            padding: 0px 54 /$maxWidthContainer * 100vw 0px 0px;
+        }
+        &:last-child {
+            padding: 0;
+        }
+    }
+
+    &__callback {
+        background: url(../img/icons/header/callback.png) left no-repeat;
+        display: inline-block;
+        @include Roboto14px300;
+        color:#1ab9ce;
+        line-height: 20px;
+        padding: 0px 0px 0px 32px;
+        span {
+            border-bottom: 1px dotted;
+        }
+    }
+
+    &__schedule {
+        background: url(../img/icons/header/schedule.png) left no-repeat;
+        padding-left: 37px;
+        @include Roboto14px300;
+        font-size: 12px;
+        line-height: 18px;
+        color: #999999;
+        span {
+            font-weight: 900;
+        }
+    }
+
+    &__cart {
+        width: 43px;
+        height: 43px;
+        display: inline-block;
+        background: url(../img/icons/header/cart.png) 0 0 no-repeat;
+        position: relative;
+        span {
+            padding: 0px 11px;
+            border-radius: 20px;
+            line-height: 25px;
+            background-color:#f68038;
+            position: absolute;
+            right: -25px;
+            top: -3px;
+            font-size: 18px;
+            font-weight: 700;
+            color: #fff;
+            @media (max-width:$md1+px) {
+                right: -10px;
+            }
+        }
+    }
 }
-.info-header__column {
-}
-.info-header__callback {
-}
-.info-header__schedule {
-}
-.info-header__cart {
-}
+
 
 
 // Сетка 
 
 ._container {
-    max-width: $maxWidthContainer;
+    max-width: $maxWidthContainer+px;
     margin: 0 auto;
     padding: 0px 20px;
 }
