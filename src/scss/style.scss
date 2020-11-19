@@ -53,6 +53,9 @@ a {
     &__bottom {
 
     }
+    @media (max-width: $md3+px) {
+        background: url("../img/bg_header.jpg") 0 -20px no-repeat;
+    }
 }
 
 .top-header {
@@ -61,16 +64,26 @@ a {
         display: flex;
         align-items: center;
         height: 90px;
+        @media (max-width: $md3+px) {
+            height: 70px;
+        }
     }
 
     &__column {
         flex: 0 1 50%;
 
         &_logo {
-            align-self: flex-start;
-            padding: 25px 0px 0px 0px;
+            
             flex: 0 0 190px;
             text-align: center;
+            @media (min-width: $md3+px) {
+                align-self: flex-start;
+                padding: 25px 0px 0px 0px;
+            }
+            @media (max-width: $md3+px) {
+                flex: 0 0 100px;
+            }
+            
         }
 
     }
@@ -80,10 +93,21 @@ a {
     }
 
     &__logo {
+        position: relative;
+        z-index: 5;
+        display: inline-block;
+        @media (max-width: $md3+px) {
+             width: 100px;
+             img {
+                 max-width: 100%;
+             }
+        }
 
     }
 
     &__contacts {
+        position: relative;
+        z-index: 5;
     }
     
 }
@@ -94,12 +118,59 @@ a {
 
     }
 
+    &__body {
+        @media (max-width: $md2+px) {
+            opacity: 0;
+            position: fixed;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            visibility: hidden;
+            left: 0;
+            overflow: auto;
+            padding: 120px 20px 30px 20px;
+            transition: all 0.3s ease 0s;
+            z-index: 2;
+            background-color:#fff;
+            &::before {
+                content: "";
+                position: fixed;
+                width: 100%;
+                height: 105px;
+                top: 0;
+                left: 0;
+                z-index: 8;
+                background-color:#009fb4;
+            }
+            &._active {
+                opacity: 1;
+                visibility: visible;
+            }
+            @media (max-width: $md3+px) {
+                padding: 90px 20px 30px 20px;
+                &::before {
+                height: 70px;
+            }
+        }
+    }
+}
+
     &__list {
         display: grid;
         grid-template-columns: 110px 130px 180px;
         
-        li {list-style-type: none;
+        li {
+            list-style-type: none;
             margin: 1px 0;
+        }
+        @media (max-width: $md1+px) {
+            grid-template-columns: 90px 110px 160px;
+        }
+        @media (max-width:$md2+px) {
+            display: block;
+            li {
+                margin: 0px 0px 20px 0px;
+            }
         }
     }
 
@@ -115,35 +186,114 @@ a {
         justify-content: center;
         align-items: center;
         padding:5px 22px;
-        @media (min-width:900px) {
+        @media (min-width:$md2+px) {
             &:hover {
                 border-radius: 20px;
                 background-color: #068292;
             }
         }
-        
+        @media (max-width: $md1+px) {
+            padding:5px 10px;
+        }
+        @media (max-width:$md2+px) {
+            color:#009fb4;
+            padding: 0;
+            font-size: 20px;
+        }
     }
 }
 
 .icon-menu {
+    display: none;
+    
+    @media (max-width:$md2+px) {
+        display:block;
+        width: 30px;
+        position: relative;
+        height: 18px;
+        cursor: pointer;
+        z-index: 5;
+        span {
+            transition: all 0.3s ease 0s;
+            top: calc(50% - 1px);
+            left: 0px;
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: #fff;
+            &:first-child {
+                top: 0px;
+            }
+            &:last-child {
+                top:auto;
+                bottom: 0px;
+            }
+        }
+        &._active {
+            span {
+                transform: scale(0);
+                &:first-child {
+                    transform: rotate(-45deg);
+                    top: calc(50% - 1px);
+                }
+                &:last-child {
+                    transform: rotate(45deg);
+                    bottom: calc(50% - 1px);
+                }
+            }
+        }
+    }
 }
 
 .contacts-header {
     display: flex;
     justify-content: center;
+    @media (max-width: $md2+px) {
+       justify-content: flex-end;
+   }
+   @media (max-width: $md3+px) {
+    align-items: initial;
+}
     &__column {
         padding: 0px 30px;
-        border-right: 1px solid #fff;
-        &:last-child {
-            border: 0;
+        @media (min-width:$md2+px) {
+            border-left: 1px solid #fff;
+            &:first-child {
+                border: 0;
+            }
+        }
+        @media (max-width:$md1+px) {
+            padding: 0px 15px;
+        }
+
+        @media (max-width:$md2+px) {
+            
+        }
+        @media (max-width:640px) {
+            padding: 0px;
         }
     }
 
     &__item {
 
+        &_second-phone {
+            @media (max-width:$md2+px) {
+                display: none;
+                border: none;
+            }
+        }
+
         &_icon {
             background: url('../img/icons/header/phone.png') left no-repeat;
             padding: 0px 0px 0px 37px;
+            @media (max-width:$md1+px) {
+                padding: 0px 0px 0px 25px;
+                background-size: 15px;
+            }
+            @media (max-width:640px) {
+                background: none;
+                padding: 0;
+            }
         }
     }
 
@@ -154,6 +304,9 @@ a {
         color: #fff;
         list-style-type: none;
         margin: 0px 0px 5px 0px;
+        @media (max-width:640px) {
+            display: none;
+        }
     }
 
     &__phone {
@@ -162,6 +315,18 @@ a {
         font-size: 18px;
         font-weight: 900;
         white-space: nowrap;
+        @media (max-width:$md1+px) {
+            font-size: 16px;
+        }
+        @media (max-width:640px) {
+            background: url(../img/icons/header/phone.png) left no-repeat;
+            width: 19px;
+            height: 25px;
+            font-size:0;
+            display: inline-block;
+            margin: 0px 10px 0px 0px;
+            vertical-align: initial;
+        }
         
     }
 }
@@ -193,34 +358,55 @@ a {
     li {
         margin: 0px 54px 0px 0px;
         @media (max-width: $maxWidthContainer+px) {
-            margin: 0px 54 /$maxWidthContainer * 100vw 0px 0px;
+            margin: 0px 30 / $maxWidthContainer * 100vw 0px 0px;
+        }
+        &:last-child {
+            margin: 0px 30px 0px 0px;
         }
     }
-    &__login {
+    @media (max-width: 640px) {
+        margin-bottom: 15px;
+        justify-content: space-between;
+    }
+
+    &__item {
         @include Roboto14px300;
         padding: 0px 0px 0px 36px;
-        background: url(../img/icons/header/login.png) left no-repeat;
         display: inline-block;
         line-height: 24px;
         color:#999999;
+        transition: all 0.3s ease 0;
         span {
             border-bottom: 1px dotted;
         }
-        
-    }
-
-    &__reg {
-        @include Roboto14px300;
-        padding: 0px 0px 0px 36px;
-        background: url(../img/icons/header/user.png) left no-repeat;
-        display: inline-block;
-        line-height: 24px;
-        color:#1ab9ce;
-        span {
-            border-bottom: 1px dotted;
+        @media (max-width: $md1+px) {
+            padding: 0px 0px 0px 30px;
         }
-    }
+        &_login {
+            background: url(../img/icons/header/login.png) left no-repeat;
+        }
 
+        &_reg {
+            background: url(../img/icons/header/user.png) left no-repeat;
+        }
+
+        &_email {
+            background: url(../img/icons/header/mail.png) left no-repeat;
+        }
+        @media (min-width:$md2+px) {
+            &:hover {
+                color: #068292;
+            }
+        }
+        @media (max-width:$md1+px) {
+            padding: 0px 0px 0px 30px;
+        }
+        @media (max-width:$md2+px) {
+            padding: 0;
+            background: none;
+        }
+
+    }
     &__email {
         @include Roboto14px300;
         padding: 0px 0px 0px 36px;
@@ -242,7 +428,7 @@ a {
     &__column {
         padding: 0px 54px 0px 0px;
         @media (max-width: $maxWidthContainer+px) {
-            padding: 0px 54 /$maxWidthContainer * 100vw 0px 0px;
+            padding: 0px 30 /$maxWidthContainer * 100vw 0px 0px;
         }
         &:last-child {
             padding: 0;
@@ -256,8 +442,13 @@ a {
         color:#1ab9ce;
         line-height: 20px;
         padding: 0px 0px 0px 32px;
+        white-space: nowrap;
         span {
             border-bottom: 1px dotted;
+        }
+        @media (max-width: $md1+px) {
+            background:none;
+            padding: 0;
         }
     }
 
@@ -270,6 +461,13 @@ a {
         color: #999999;
         span {
             font-weight: 900;
+        }
+        @media (max-width: $md1+px) {
+            background:none;
+            padding: 0;
+        }
+        @media (max-width: $md1+px) {
+            display: none;
         }
     }
 
@@ -294,6 +492,14 @@ a {
                 right: -10px;
             }
         }
+        @media (max-width:640px) {
+            margin-top: 5px;
+            span {
+                font-size: 14px;
+                line-height: 20px;
+                padding: 0px 10px;
+            }
+        }
     }
 }
 
@@ -305,5 +511,8 @@ a {
     max-width: $maxWidthContainer+px;
     margin: 0 auto;
     padding: 0px 20px;
+    @media (max-width:640px) {
+        padding: 0px 15px;
+    }
 }
 
