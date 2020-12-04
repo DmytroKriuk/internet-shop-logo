@@ -39,7 +39,15 @@ $md4:479.98;
 
 //Swiper
 
+$themeColor: #007aff !default;
+$colors: (
+  'white': #ffffff,
+  'black': #000000,
+) !default;
 
+:root {
+    --swiper-theme-color: #{$themeColor};
+  }
 
 @font-face {
   font-family: 'swiper-icons';

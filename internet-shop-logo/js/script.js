@@ -207,7 +207,7 @@ for (let index = 0; index < checkboxCategories.length; index++) {
         }
     });
 }
-// Swiper Slider 
+/* // Swiper Slider 
 
 let sliders = document.querySelectorAll('._swiper');
 if (sliders) {
@@ -236,9 +236,9 @@ if (sliders) {
   sliders_bild_callback();
 }
 
-function sliders_bild_callback(params) { }
+function sliders_bild_callback(params) { } */
 
-let slider_about = new Swiper('.mainslider__body', {
+let mainslider = new Swiper('.swiper-container', {
 
     observer: true,
     observerParents: true,
@@ -246,7 +246,6 @@ let slider_about = new Swiper('.mainslider__body', {
     spaceBetween: 0,
     autoHeight: true,
     speed: 800,
-    loop: true,
 
     pagination: {
       el: 'mainslider__dotts',
