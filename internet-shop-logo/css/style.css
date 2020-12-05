@@ -730,21 +730,34 @@ body._lock {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin: 0px -15px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 0px -7px;
+  height: 100%;
 }
 
 .items-products__column {
   -webkit-box-flex: 0;
-      -ms-flex: 0 1 33.333%;
-          flex: 0 1 33.333%;
-  padding: 0px 15px;
+      -ms-flex: 0 1 30.7%;
+          flex: 0 1 30.7%;
+  padding: 0px 10px;
+  padding-bottom: 30px;
+  margin-bottom: 30px;
 }
 
 .item-product {
   padding: 14px;
+  height: 100%;
   position: relative;
   border: 1px solid #f5f5f5;
   overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .item-product__labels {
@@ -789,28 +802,47 @@ body._lock {
 
 .item-product__image img {
   max-width: 100%;
-  max-height: 175px;
+  max-height: 240px;
 }
 
 .item-product__body {
   padding: 0 10px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .item-product__title {
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
   color: #36949f;
   font-size: 16px;
   font-weight: 300;
   line-height: 24px;
   display: inline-block;
   margin-bottom: 5px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
 }
 
 .item-product__title span {
-  font-weight: 900;
   display: block;
+  font-weight: 900;
 }
 
 .item-product__footer {
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -857,7 +889,8 @@ body._lock {
 
 .item-product__hover {
   position: absolute;
-  height: 90%;
+  height: 91%;
+  width: 84%;
   top: 0;
   left: 0;
   -webkit-transition: -webkit-transform 0.3s ease 0s;
@@ -898,10 +931,11 @@ body._lock {
   display: block;
 }
 
-.hover-item-product__options {
+.hover-item-product__body {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
+  padding-top: 20px;
 }
 
 .hover-item-product__cart {
@@ -909,6 +943,8 @@ body._lock {
   width: 57px;
   height: 57px;
   margin: 0 auto 25px auto;
+  cursor: pointer;
+  display: block;
 }
 
 .hover-item-product__footer {
@@ -958,6 +994,7 @@ body._lock {
   height: 21px;
   border-radius: 15px;
   background-color: #ffffff;
+  cursor: pointer;
 }
 
 .hover-item-product__price {
@@ -1491,6 +1528,41 @@ textarea.input {
   letter-spacing: 0.9px;
 }
 
+.products-slider__control {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.products-slider__arrow {
+  background: url("../img/icons/sl_arrow_next.svg") 0 0 no-repeat;
+  height: 29px;
+  width: 34px;
+  cursor: pointer;
+  outline: none;
+}
+
+.products-slider__arrow_prev {
+  -webkit-transform: rotate(-180deg);
+      -ms-transform: rotate(-180deg);
+          transform: rotate(-180deg);
+}
+
+.products-slider__info {
+  padding: 0px 20px;
+  color: #999999;
+  font-weight: 500;
+}
+
+.products-slider__info .swiper-pagination-current {
+  color: #333333;
+  font-size: 30px;
+  font-weight: 900;
+}
+
 .options-item-product__item {
   margin-bottom: 10px;
 }
@@ -1597,6 +1669,11 @@ textarea.input {
             transform: translate(0px, 0px);
   }
 
+  .item-product:hover .item-product__title,
+  .item-product:hover .item-product__footer {
+    opacity: 0;
+  }
+
   .side-title:hover {
     color: #1ab9ce;
   }
@@ -1631,6 +1708,22 @@ textarea.input {
 
   .reviews-side__user:hover {
     color: #1ab9ce;
+  }
+
+  .products-slider__arrow:hover {
+    background: url("../img/icons/sl_arrow_prev.svg") 0 0 no-repeat;
+  }
+
+  .products-slider__arrow_prev:hover {
+    -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+
+  .products-slider__arrow_next:hover {
+    -webkit-transform: rotate(-180deg);
+        -ms-transform: rotate(-180deg);
+            transform: rotate(-180deg);
   }
 }
 

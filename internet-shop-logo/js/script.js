@@ -286,15 +286,20 @@ if (document.querySelector('.products-slider')) {
       spaceBetween: 0,
       autoHeight: true,
       speed: 800,
+      pagination: {
+        el: '.products-slider__info',
+        type: 'fraction',
+      },
       //loop: true,
       /*
+      
       pagination: {
         el: '.mainslider__dotts',
         clickable: true,
       },*/
       navigation: {
-        nextEL: '.products-slider__arrow_next',
-        prevEL: '.products-slider__arrow_prev',
+        nextEl: '.swiper-button-prev',
+        prevEl: '.swiper-button-next',
       },
 
       on: {
