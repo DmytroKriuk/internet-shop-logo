@@ -220,11 +220,11 @@ for (let index = 0; index < checkboxCategories.length; index++) {
 };
 // Swiper Slider 
 
-/*let sliders = document.querySelectorAll('._swiper');
+let sliders = document.querySelectorAll('._swiper');
 if (sliders) {
   for (let index = 0; index < sliders.length; index++) {
     let slider = sliders[index];
-    if (!slider.classList.contains('swiper-bild')){
+    if (!slider.classList.contains('swiper-container')){
         let slider_items = slider.children;
         if (slider_items) {
           for (let index = 0; index < slider_items.length; index++) {
@@ -238,16 +238,16 @@ if (sliders) {
         slider_wrapper.innerHTML = slider_content;
         slider.innerHTML = '';
         slider.appendChild(slider_wrapper);
-        slider.classList.add('swiper-bild');
+        slider.classList.add('swiper-container');
     }
   }
   sliders_bild_callback();
 }
 
-function sliders_bild_callback(params) { } */
+function sliders_bild_callback(params) { } 
 
 if (document.querySelector('.mainslider')) {
-  let mainslider = new Swiper('.swiper-container', {
+  let mainslider = new Swiper('.mainslider__body', {
 
       observer: true,
       observerParents: true,
@@ -260,6 +260,41 @@ if (document.querySelector('.mainslider')) {
       pagination: {
         el: '.mainslider__dotts',
         clickable: true,
+      },
+
+      on: {
+        lazyImageReady: function () {
+          ibg();
+        },
+      }
+  });
+  let mainsliderImages = document.querySelectorAll('.mainslider__image');
+  let mainsliderDotts = document.querySelectorAll('.mainslider__dotts .swiper-pagination-bullet');
+
+  for (let index = 0; index < mainsliderImages.length; index++) {
+      const mainsliderImage = mainsliderImages[index].querySelector('img').getAttribute('src');
+      mainsliderDotts[index].style.backgroundImage = "url('" + mainsliderImage + "')";
+  }
+}
+
+if (document.querySelector('.products-slider')) {
+    let productSlider = new Swiper('.products-slider__item', {
+
+      observer: true,
+      observerParents: true,
+      slidesPerView: 1,
+      spaceBetween: 0,
+      autoHeight: true,
+      speed: 800,
+      //loop: true,
+      /*
+      pagination: {
+        el: '.mainslider__dotts',
+        clickable: true,
+      },*/
+      navigation: {
+        nextEL: '.products-slider__arrow_next',
+        prevEL: '.products-slider__arrow_prev',
       },
 
       on: {
