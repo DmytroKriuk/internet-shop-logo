@@ -665,7 +665,36 @@ li {
     }
 }
 
+// Общие стрелки 
+._arrow {
+    background: url('../img/icons/sl_arrow_next.svg') 0 0 no-repeat;
+        height: 29px;
+        width: 34px;
+        cursor: pointer;
+        outline: none;
+        @media (min-width: $md2+px) {
+            &:hover {
+                background: url('../img/icons/sl_arrow_prev.svg') 0 0 no-repeat;
+            }
+        }
+}
 
+._arrow_next {
+    @media (min-width: $md2+px) {
+        &:hover {
+            transform: rotate(-180deg);
+        }
+    }
+}
+
+._arrow_prev {
+    transform: rotate(-180deg);
+            @media (min-width: $md2+px) {
+                &:hover {
+                    transform: rotate(0deg);
+                }
+            }
+}
 
 
 // Общие параметры
@@ -708,6 +737,7 @@ body {
     padding-top: 85px;
 }
     &__container {
+        padding-bottom: 20px;
         @media (min-width: $md2+px) {  
              display: flex;
         }
@@ -756,7 +786,10 @@ body {
     }
 
     &__products {
+    }
 
+    &__brands {
+        margin-bottom: 32px;
     }
 }
 
@@ -979,13 +1012,22 @@ body {
     display: flex;
     flex-wrap: wrap;
     margin: 0px -7px;
-    height: 100%;
     &__column {
         flex: 0 1 30.7%;
         padding: 0px 10px;
         padding-bottom: 30px;
         margin-bottom: 30px;
+        @media (max-width: $md1+px) and (min-width: $md2+px) {
+            flex: 0 1 46.8%;
+        }
+        @media (max-width: 840px) {
+            flex: 0 1 46.8%;
+        }
+        @media (max-width: 670px) {
+            flex: 0 1 100%;
+        }
     }
+    
 }
 
 .item-product {
@@ -1098,7 +1140,7 @@ body {
         top: 0;
         left: 0;
         transition: transform 0.3s ease 0s;
-        transform: translate(-100%, 0px);
+        transform: translate(-110%, 0px);
     }
     @media (min-width: $md2+px) {
         &:hover {
@@ -1733,8 +1775,10 @@ textarea.input {
 .products-slider {
 
     &__header {
-        display: flex;
         margin-bottom: 30px;
+        @media (min-width: $md3+px) {
+            display: flex;;
+        }
     }
 
     &__title {
@@ -1744,6 +1788,9 @@ textarea.input {
         font-size: 36px;
         text-transform: uppercase;
         letter-spacing: 0.9px;
+        @media (max-width: $md3+px) {
+            margin-bottom: 15px;
+        }
     }
 
     &__control {
@@ -1752,31 +1799,13 @@ textarea.input {
     }
 
     &__arrow {
-        background: url('../img/icons/sl_arrow_next.svg') 0 0 no-repeat;
-        height: 29px;
-        width: 34px;
-        cursor: pointer;
-        outline: none;
-        @media (min-width: $md2+px) {
-            &:hover {
-                background: url('../img/icons/sl_arrow_prev.svg') 0 0 no-repeat;
-            }
-        }
+        
         &_prev {
-            transform: rotate(-180deg);
-            @media (min-width: $md2+px) {
-                &:hover {
-                    transform: rotate(0deg);
-                }
-            }
+            
         }
 
         &_next {
-            @media (min-width: $md2+px) {
-                &:hover {
-                    transform: rotate(-180deg);
-                }
-            }
+            
         }
     }
 
@@ -1809,5 +1838,65 @@ textarea.input {
     &__value {
         color: #f68038;
         font-weight: 900;
+    }
+}
+
+
+.brands-slider {
+    border-top: 3px dashed #dadada;
+    border-bottom: 3px dashed #dadada;
+    padding: 25px 0;
+    &__container { 
+        position: relative;
+    }
+
+    &__body {
+        padding: 0px 30px;
+    }
+
+    &__slide {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: auto;
+        img {
+            cursor: pointer;
+            padding: 0px 5px;
+            max-width: 100%;
+            transition: all 0.3s ease 0s;
+            filter: grayscale(1);
+            -webkit-filter: grayscale(1);
+            -moz-filter: grayscale(1);
+            -o-filter: grayscale(1);
+                &:hover {
+                    filter: grayscale(0);
+                    -webkit-filter: grayscale(0);
+                    -moz-filter: grayscale(0);
+                    -o-filter: grayscale(0);
+                }
+            
+        }
+    }
+
+    &_arrows {
+    }
+
+    &__arrow {
+        position: absolute;
+        top: 50%;
+        margin-top: -15px;
+        &_prev {
+            left: 10px;
+            @media (min-width: 1200px) {
+                left: 0;
+            }
+        }
+
+        &_next {
+            right: 10px;
+            @media (min-width: 1200px) {
+                right: 0;
+            }
+        }
     }
 }
