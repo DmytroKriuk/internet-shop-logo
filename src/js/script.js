@@ -1,4 +1,8 @@
 
+@@include('nouislider.js', {});
+@@include('wNumb.min.js', {});
+
+
 let header__burger = document.querySelector('.icon-menu');
 let header_menu = document.querySelector('.menu__body');
 let back = document.querySelector('body');
@@ -354,4 +358,34 @@ if (document.querySelector('.brands-slider')) {
         },
     },
 })
+}
+
+const priceSlider = document.querySelector('.price-filter__slider');
+
+noUiSlider.create(priceSlider, {
+    start: [20, 200000],
+    connect: true,
+    tooltips: [wNumb({decimals: 0}), wNumb({decimals: 0}),],
+    range: {
+        'min': [0],
+        'max': [200000]
+    }
+});
+
+const priceStart = document.getElementById('price-start');
+const priceEnd = document.getElementById('price-end');
+priceStart.addEventListener('keyup', setPriceValues);
+priceEnd.addEventListener('keyup', setPriceValues);
+
+function setPriceValues() {
+  let priceStartValue;
+  let priceEndValue;
+  if (priceStart.value != '') {
+    priceStartValue = priceStart.value;
+  }
+  if(priceEnd.value != '') {
+    priceEndValue = priceEnd.value
+  }
+
+  priceSlider.noUiSlider.set([priceStartValue, priceEndValue]);
 }

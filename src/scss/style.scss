@@ -12,6 +12,9 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,regular,500,700,900&display=swap&subset=cyrillic-ext");
 
 @import "fonts";
+@import "catalog";
+
+
 
 //Primary font
 $fontFamily: "Roboto";
@@ -1157,7 +1160,7 @@ body {
             }
             .item-product__title,
             .item-product__footer {
-                opacity: 0;
+                opacity: 1;
             }    
         }
         
@@ -1294,15 +1297,14 @@ textarea {
     border-radius: 0 !important;
     width: 100%;
     display: block;
-    padding: 0px 25px;
+    padding: 0px 15px;
     outline: none;
     border: none;
-    &._focus {
+}
 
-    }
-    &._error {
-
-    }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+-webkit-appearance: none;
 }
 
 textarea.input {
