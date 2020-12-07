@@ -1641,6 +1641,65 @@ textarea.input {
   right: 10px;
 }
 
+.text-block__body {
+  padding: 45px 35px;
+  background: url("../img/bg_text.png") 0 0 repeat;
+}
+
+.text-block__title {
+  color: #22b7ca;
+  font-family: "UniSans";
+  font-size: 30px;
+  text-transform: uppercase;
+  letter-spacing: 0.75px;
+  margin-bottom: 28px;
+}
+
+.text-block__row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0px -30px;
+}
+
+.text-block__column {
+  padding: 0px 30px;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 50%;
+          flex: 0 1 50%;
+  color: #ffffff;
+}
+
+.text-block__column p {
+  color: #ffffff;
+  font-size: 12px;
+  line-height: 20px;
+  letter-spacing: 0.3px;
+  margin-bottom: 20px;
+}
+
+.text-block__label {
+  text-transform: uppercase;
+  font-weight: 900;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.text-block__list li {
+  font-size: 12px;
+  line-height: 20px;
+  letter-spacing: 0.3px;
+}
+
+.text-block__list li::before {
+  content: '';
+  margin: 0px 17px 0px 7px;
+  display: inline-block;
+  width: 11px;
+  height: 12px;
+  background: url("../img/bg-text-arrow.png") left 1px no-repeat;
+}
+
 @media (min-width: 767.98px) {
   .top-header__column_logo {
     -ms-flex-item-align: start;
@@ -2216,6 +2275,10 @@ textarea.input {
 .webp .search-page__title::after{ background: url(../img/icons/search__page_icons.webp) 0 0 no-repeat; }
 
 .webp .content-mainslider__button span{ background: url(../img/mainSlider/button_arrow.webp) right no-repeat; }
+
+.webp .text-block__body{ background: url(../img/bg_text.webp) 0 0 repeat; }
+
+.webp .text-block__list li::before{ background: url(../img/bg-text-arrow.webp) left 1px no-repeat; }
 
 @media (max-width: 767.98px){
 
