@@ -204,6 +204,55 @@ searchSelect.addEventListener("click", function (e) {
   eachSelect.classList.toggle('_active');
 });
 
+
+
+
+
+
+
+
+
+    // searchSpoller[0].classList.toggle('_active');
+    //eachSpoller[0].classList.toggle('_active');
+   // eachSpoller[1].classList.toggle('_active');
+
+let searchSpoller = document.querySelectorAll('._spollers-body');
+let eachSpoller = document.querySelectorAll('._spoller')
+console.log(eachSpoller)
+
+searchSpoller.forEach(function(e) {
+  e.addEventListener("click", function (e) {
+    e.target.classList.toggle('_active')
+})});
+
+
+
+
+
+const headers = document.querySelectorAll("[data-name='spoiler-title']");
+
+headers.forEach(function (item) {
+  item.addEventListener("click", headerClick);
+});
+
+function headerClick() {
+  this.nextElementSibling.classList.toggle("spoiler-body");
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 let checkboxCategories = document.querySelectorAll('.categories-search__checkbox');
 
 for (let index = 0; index < checkboxCategories.length; index++) {
