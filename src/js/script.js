@@ -189,14 +189,15 @@ for (let index = 0; index < menuParents.length; index++) {
   });
 } 
 }
-
-if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-  let filterTitle = document.querySelector('.filter__title');
-  let filterContent = document.querySelector('.filter__content');
-  filterTitle.addEventListener("click", function(e) {
-    filterTitle.classList.toggle('_active');
-    filterContent.classList.toggle('_active');
-  });
+window.onload=function() {
+  if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    let filterTitle = document.querySelector('.filter__title');
+    let filterContent = document.querySelector('.filter__content');
+    filterTitle.addEventListener("click", function(e) {
+      filterTitle.classList.toggle('_active');
+      filterContent.classList.toggle('_active');
+    });
+  }
 }
 
 let menuPageBurger = document.querySelector('.menu-page__burger');

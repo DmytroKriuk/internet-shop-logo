@@ -1126,7 +1126,7 @@ body {
         line-height: 24px;
         display: inline-block;
         margin-bottom: 5px;
-        flex: 1 1 auto;
+        flex: 0 1 auto;
         span {
             display: block;
             font-weight: 900;
@@ -1135,6 +1135,18 @@ body {
             &:hover {
                 text-decoration: underline;
             }
+        }
+        &_hover {
+            margin-bottom: 50px;
+            @media (min-width: $md2+px) {
+                &:hover {
+                    
+            .item-product__title,
+            .item-product__footer {
+                opacity: 1 !important;
+            }  
+                }
+            } 
         }
     }
 
@@ -1196,6 +1208,10 @@ body {
         
     }
 
+}
+
+#identified {
+        opacity: 1;
 }
 
 .hover-item-product {
@@ -1650,6 +1666,9 @@ select {
         span {
             display: block;
             color: #f68038;
+        }
+        @media (max-width:$md3+px) { 
+            font-size: 40px;
         }
     }
 
